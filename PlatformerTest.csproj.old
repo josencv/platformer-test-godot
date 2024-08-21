@@ -1,4 +1,4 @@
-<Project Sdk="Godot.NET.Sdk/4.3.0">
+<Project Sdk="Godot.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <EnableDynamicLoading>true</EnableDynamicLoading>
@@ -32,10 +32,6 @@
     <PackageReference Include="Chickensoft.GoDotTest" Version="1.5.10" />
     <!-- Used to drive test scenes when testing visual code -->
     <PackageReference Include="Chickensoft.GodotTestDriver" Version="3.0.2" />
-    <PackageReference Include="Chickensoft.Introspection" Version="1.5.0" />
-    <PackageReference Include="Chickensoft.Introspection.Generator" Version="1.5.0" />
-    <PackageReference Include="Chickensoft.LogicBlocks" Version="5.4.0" />
-    <PackageReference Include="Chickensoft.LogicBlocks.DiagramGenerator" Version="5.4.0" />
     <!-- Bring your own assertion library for tests! -->
     <!-- We're using Shouldly for this example, but you can use anything. -->
     <PackageReference Include="Shouldly" Version="4.2.1" />

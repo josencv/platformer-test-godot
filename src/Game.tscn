@@ -1,30 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cywpu6lxdjhuu"]
+[gd_scene load_steps=4 format=3 uid="uid://cywpu6lxdjhuu"]
 
-[ext_resource type="Script" path="res://src/Game.cs" id="1_17mmo"]
+[ext_resource type="PackedScene" uid="uid://cahnvu57b0u1a" path="res://src/platform/static_platform.tscn" id="2_fvf1v"]
+[ext_resource type="PackedScene" uid="uid://dkiifnch2fh0j" path="res://src/player/player.tscn" id="2_n8ai2"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_17mmo")
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kyt83"]
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Game" type="Node2D"]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-layout_mode = 2
+[node name="PrototypeLevel" type="Node2D" parent="."]
+position = Vector2(993, 872)
 
-[node name="TestButton" type="Button" parent="CenterContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Test Button"
+[node name="Floor" type="StaticBody2D" parent="PrototypeLevel"]
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/TestButton" to="." method="OnTestButtonPressed"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PrototypeLevel/Floor"]
+position = Vector2(-1, 0)
+shape = SubResource("WorldBoundaryShape2D_kyt83")
+
+[node name="Color" type="ColorRect" parent="PrototypeLevel/Floor"]
+offset_left = -12060.0
+offset_right = 12064.0
+offset_bottom = 303.0
+color = Color(0.137255, 0.0627451, 0.105882, 1)
+
+[node name="StaticPlatform" parent="PrototypeLevel" instance=ExtResource("2_fvf1v")]
+position = Vector2(-237, -103)
+scale = Vector2(3.29766, 0.538084)
+
+[node name="StaticPlatform2" parent="PrototypeLevel" instance=ExtResource("2_fvf1v")]
+position = Vector2(-451, -187)
+scale = Vector2(3.29766, 0.538084)
+
+[node name="StaticPlatform3" parent="PrototypeLevel" instance=ExtResource("2_fvf1v")]
+position = Vector2(-19, -188)
+scale = Vector2(3.29766, 0.538084)
+
+[node name="StaticPlatform4" parent="PrototypeLevel" instance=ExtResource("2_fvf1v")]
+position = Vector2(-233, -279)
+scale = Vector2(3.29766, 0.538084)
+
+[node name="Player" parent="." instance=ExtResource("2_n8ai2")]
+position = Vector2(991, 869)
